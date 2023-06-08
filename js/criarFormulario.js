@@ -4,8 +4,11 @@ function criarForm(obj,nomeFormulario){
         if (obj.hasOwnProperty(item)) {
             document.write(`<li>
                                     <label for="${item}">${obj[item].label}:</label>
-                                    <input type=${obj[item].tipo}text" id="${item}" />
-                            </li>`)
+                                    <input type=${obj[item].tipo} id="${item}"`)
+            if(obj[item].hasOwnProperty('obrigatorio')){
+                document.write(`required="${obj[item].obrigatorio}"`);
+            }
+            document.write('/></li>');
         }
     }
     document.write(`<li>

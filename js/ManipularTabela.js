@@ -21,9 +21,7 @@ function criarTabela(){
 }
 function criarLinha(obj,colunas){
         for (var item of colunas) {
-            console.log(item); 
             if (obj.hasOwnProperty(item)) {
-            console.log('teste'+obj.hasOwnProperty(item));
             document.write(`<td> ${obj[item]}</td>`);
         }else{
                 document.write('<td></td>')

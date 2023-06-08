@@ -7,42 +7,58 @@
     <script type="text/javascript" src="js/EntradaFormulario.js"></script>
     <script type="text/javascript" src="js/ManipularTabela.js"></script>
     <script type="text/javascript" src="js/criarFormulario.js"></script>
+    <link rel="stylesheet" href="style.css">
+
     
 </head>
 <body>
+    <div>
+    <h1>Onco Pet</h1>
     <script>
         checarArmazenamento();
         dados = {
             "tutor" : {
                 "nome":{ 
-                    "label":"Nome:",
+                    "label":"Nome",
                     "tipo":"text",
                     "tamanho":50,
                     "obrigatorio":true
                 },
                 "CPF":{ 
-                    "label":"CPF:",
+                    "label":"CPF",
                     "tipo":"number",
                     "tamanho":50,
                     "obrigatorio":true
                 },
-                "idade":{ 
-                    "label":"Idade:",
-                    "tipo":"number"
+                "nasc":{ 
+                    "label":"nasc",
+                    "tipo":"date"
                 },
                 "email":{ 
-                    "label":"E-mail:",
-                    "tipo":"text",
+                    "label":"E-mail",
+                    "tipo":"email",
                     "tamanho":10
                 },
+            },
+            "animal" :{
+                "label":"Nome",
+                "tipo":"text",
+
+
             }
         };
+    </script>
+    <div class="seila">
+        <p>Complete com suas informações</p>
+        <br>
+    <script>
         criarForm(obj=dados.tutor,'CadastroTutor');
-    </script>
-    <script>if(localStorage.clickcount>0){
+        if(localStorage.clickcount){
         criarTabela();
-        
     }
+
     </script>
+    </div>
+    </div>
 </body>
 </html>
