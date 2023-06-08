@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Overlock&display=swap');
+body, html {
+  background-color: #bebcbc;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+h1{
+   font-family: 'Overlock', cursive;
+  text-align: center;
+  font-size: 40px;
+  color: #675D50;
+}
+.seila{
+  width: 80%;
+  padding: 30px 70px 110px;
+  border: 1px solid #0e0101f3;
+  border-radius: 5px;
+  background-color: #BFCCB5;
+}
+p{
+  font-family: 'Overlock', cursive;
+  font-size: 20px;
+  text-align: center;
+  color: #27231d;
+}
+label{
+  font-family: 'Overlock', cursive;
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #27231d;
+  
+}
+input{
+  width: 97%;
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.button{
+  background-color: #f8f6f6;
+  width: 398px;
+}
+.button:hover{
+  background-color: #949090;
+}
+  
+
