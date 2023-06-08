@@ -4,28 +4,45 @@
 <head>
     <meta charset="utf-8" />
     <title>Onco Pet</title>
-    <script type="text/javascript" src="EntradaFormulario.js"></script>
+    <script type="text/javascript" src="js/EntradaFormulario.js"></script>
+    <script type="text/javascript" src="js/ManipularTabela.js"></script>
+    <script type="text/javascript" src="js/criarFormulario.js"></script>
+    
 </head>
 <body>
-    <form id="CadastroTutor">
-        <ul>
-            <li>
-                <label for="tutNome">Nome:</label>
-                <input type="text" id="tutNome" />
-            </li>
-            <li>
-                <label for="tutFone">Telefone:</label>
-                <input type="text" id="tutFone" />
-            </li>
-            <li>
-                <label for="tutEmail">E-mail:</label>
-                <input type="text" id="tutEmail" />
-            </li>
-            <li>
-                <input type="submit" onClick ="salvarFormulario()" value="Salvar" id="btnSalvar" />
-            </li>
-        </ul>
-
-    </form>
+    <script>
+        checarArmazenamento();
+        dados = {
+            "tutor" : {
+                "nome":{ 
+                    "label":"Nome:",
+                    "tipo":"text",
+                    "tamanho":50,
+                    "obrigatorio":true
+                },
+                "CPF":{ 
+                    "label":"CPF:",
+                    "tipo":"number",
+                    "tamanho":50,
+                    "obrigatorio":true
+                },
+                "idade":{ 
+                    "label":"Idade:",
+                    "tipo":"number"
+                },
+                "email":{ 
+                    "label":"E-mail:",
+                    "tipo":"text",
+                    "tamanho":10
+                },
+            }
+        };
+        criarForm(obj=dados.tutor,'CadastroTutor');
+    </script>
+    <script>if(localStorage.clickcount>0){
+        criarTabela();
+        
+    }
+    </script>
 </body>
 </html>
