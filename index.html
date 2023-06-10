@@ -4,9 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <title>Onco Pet</title>
-    <script type="text/javascript" src="js/EntradaFormulario.js"></script>
+    <script type="text/javascript" src="js/formulario.js"></script>
     <script type="text/javascript" src="js/ManipularTabela.js"></script>
-    <script type="text/javascript" src="js/criarFormulario.js"></script>
     <link rel="stylesheet" href="style.css">
 
     
@@ -22,13 +21,13 @@
                     "label":"Nome",
                     "tipo":"text",
                     "tamanho":50,
-                    "obrigatorio":true
+                 //   "obrigatorio":false
                 },
                 "CPF":{ 
                     "label":"CPF",
                     "tipo":"number",
                     "tamanho":50,
-                    "obrigatorio":true
+                  //  "obrigatorio":false
                 },
                 "nasc":{ 
                     "label":"nasc",
@@ -41,21 +40,28 @@
                 },
             },
             "animal" :{
-                "label":"Nome",
-                "tipo":"text",
-
-
+                "nome":{
+                        "label":"Nome",
+                        "tipo":"text"
+                }
             }
         };
     </script>
     <div class="seila">
         <p>Complete com suas informações</p>
         <br>
+        <div id = "div_CadastroTutor"></div>
+        <div id = "div_CadastroAnimal"></div>
     <script>
-        criarForm(obj=dados.tutor,'CadastroTutor');
+        
+        criarForm(dados.tutor,'CadastroTutor');
+        if(localStorage.hasOwnProperty("tutorAtual")){
+            popularForm(localStorage.tutorAtual,'CadastroTutor');
+        }
+        document.getElementById("Salvar_CadastroTutor").setAttribute("onclick","salvarTutor('CadastroAnimal')");
         if(localStorage.clickcount){
-        criarTabela();
-    }
+                criarTabela();
+        }
 
     </script>
     </div>

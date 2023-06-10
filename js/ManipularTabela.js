@@ -1,6 +1,7 @@
 function checarArmazenamento(){
-    if (!localStorage.clickcount) {
-        localStorage.clickcount = 1;
+    console.log(localStorage.clickcount);
+    if (localStorage.hasOwnProperty('clickcount')==false){
+        localStorage.clickcount = 0;
     }
     return document.write(`<h1>Temos ${localStorage.clickcount} tutores no armanazenamento local!</h1>`)
 }
@@ -11,7 +12,7 @@ function criarTabela(){
     Object.keys(dados.tutor).forEach((item) =>criarTabheader(item));
     Object.keys(dados.tutor).forEach((item) =>colunas.push(item));
     document.write('</tr>');
-    for(var i = 0; i<=localStorage.clickcount; i++){
+    for(var i = 1; i<=localStorage.clickcount; i++){
         var tutor = JSON.parse(localStorage.getItem('Tutor_' + i));
         document.write('<tr>');
         criarLinha(tutor,colunas);
