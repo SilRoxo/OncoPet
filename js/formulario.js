@@ -17,8 +17,8 @@ function criarForm(obj,nomeFormulario){
         }
     }
     conteudo+=`<li>
-        <button type="button" form=${nomeFormulario}  onClick ="salvarFormulario${nomeFormulario}()" id="Salvar_${nomeFormulario}">Salvar novo Tutor
-        <button type="submit" form=${nomeFormulario}  onClick ="editar${nomeFormulario}()" id="Editar_${nomeFormulario}">Editar Dados
+        <button type="button" form=${nomeFormulario}  onClick ="salvarForm(${nomeFormulario})" id="Form_${nomeFormulario}">Salvar novo Tutor
+        <button type="submit" form=${nomeFormulario}  onClick ="editarForm(${nomeFormulario})" id="Editar_${nomeFormulario}">Editar Dados
                 </li>
                 </ul>
             </form> </div>`;
@@ -42,20 +42,24 @@ function gerarTutor() {
   //  localStorage.console = "0";
     var novoTutor = new Object();
     AtualizarQuantidadeTutores();
-    Object.keys(dados.tutor).forEach((item) => novoTutor[item]=document.getElementById(`CadastroTutor_${item}`).value);
+    Object.keys(dados.tutor).forEach((item) => novoTutor[item]=document.getElementById(`tutor_${item}`).value);
     return JSON.stringify(novoTutor);
 }
-function salvarTutor(nomeForm) {
+function salvarForm(nomeForm) {
     if (validarDados(nomeForm)){;
-        localStorage.clickcount++
-        var cad = gerarTutor();
-        localStorage.setItem('Tutor_' + localStorage.clickcount, cad);
-        localStorage.tutorAtual = 'Tutor_' + localStorage.clickcount;
+        localStorage.clickcount++;
+        if  (nomeForm=='tutor'){
+            var cad = gerarTutor();
+            localStorage.setItem('Tutor_' + localStorage.clickcount, cad);
+            localStorage.tutorAtual = 'Tutor_' + localStorage.clickcount;
+        }
     }
 }
-function editarCadastroTutor(){
-    var cad = gerarTutor();
-    localStorage.setItem(localStorage.tutorAtual,cad)
+function editarForm(form){
+    if(form = 'tutor'){
+        var cad = gerarTutor();
+        localStorage.setItem(localStorage.tutorAtual,cad);
+    }
 }
 function gerarFormAnimal(nomeFormulario){
     console.log(nomeFormulario);
@@ -82,7 +86,7 @@ function apagarTutor(){
     localStorage.tutorAtual=0;
     AtualizarQuantidadeTutores();
 }
-function validarDados(nomeForm,form){
+function validarDados(form){
     for (var chave in dados[form]){
         console.log(form);
     }
