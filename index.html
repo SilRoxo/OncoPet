@@ -56,16 +56,16 @@
     <div class="seila">
         <p>Complete com suas informações</p>
         <br>
-        <div id = "div_CadastroTutor"></div>
+        <div id = "div_tutor"></div>
         <div id = "div_CadastroAnimal"></div>
     <script>
         
-        criarForm(dados.tutor,'CadastroTutor');
+        criarForm(dados.tutor,'tutor');
         if(localStorage["totalTutores"]!=0){
-            popularForm(localStorage.tutorAtual,'CadastroTutor');
+            popularForm(localStorage.tutorAtual,'tutor');
             criarTabela();
         }
-        document.getElementById("Salvar_CadastroTutor").setAttribute("onclick","salvarTutor('CadastroAnimal')");
+      //  document.getElementById("Salvar_tutor").setAttribute("onclick","salvarTutor('CadastroAnimal')");
         
     </script>
     </div>
