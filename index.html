@@ -21,6 +21,7 @@
                     "label":"Nome",
                     "tipo":"text",
                     "tamanho":50,
+                    "name":"teste",
                  //   "obrigatorio":false
                 },
                 "CPF":{ 
@@ -38,6 +39,11 @@
                     "tipo":"email",
                     "tamanho":10
                 },
+                "rg":{
+                    'label':'RG',
+                    'tipo':'number'
+
+                }
             },
             "animal" :{
                 "nome":{
@@ -55,16 +61,15 @@
     <script>
         
         criarForm(dados.tutor,'CadastroTutor');
-        if(localStorage.hasOwnProperty("tutorAtual")){
+        if(localStorage["totalTutores"]!=0){
             popularForm(localStorage.tutorAtual,'CadastroTutor');
+            criarTabela();
         }
         document.getElementById("Salvar_CadastroTutor").setAttribute("onclick","salvarTutor('CadastroAnimal')");
-        if(localStorage.clickcount){
-                criarTabela();
-        }
-
+        
     </script>
     </div>
     </div>
+    <div id="lightbox" onclick="fecharLightbox()"></div>
 </body>
 </html>
