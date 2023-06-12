@@ -13,6 +13,7 @@
 <body>
     <div>
     <h1>Onco Pet</h1>
+    <h2 id="anuncio"></h2>
     <script>
         checarArmazenamento();
         dados = {
@@ -20,14 +21,23 @@
                 "nome":{ 
                     "label":"Nome",
                     "tipo":"text",
+                    "validador":{
+                        "regra":"^[a-zA-Z/\\s]+$",
+                        "mensagem":"conter apenas letras e espaços"
+                    },
                     "tamanho":50,
-                    "name":"teste",
+                    "name":"teste"
+                    
                  //   "obrigatorio":false
                 },
                 "CPF":{ 
                     "label":"CPF",
-                    "tipo":"number",
-                    "tamanho":50,
+                    "tipo":"text",
+                    "validador":{
+                        "regra":"^[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}$",
+                        "mensagem":"apresentar o seguinte formato: *999.999.999-99*"
+                    
+                    }
                   //  "obrigatorio":false
                 },
                 "nasc":{ 
@@ -37,39 +47,62 @@
                 "email":{ 
                     "label":"E-mail",
                     "tipo":"email",
-                    "tamanho":10
                 },
                 "rg":{
                     'label':'RG',
                     'tipo':'number'
 
+                },
+                "Endereço":{
+                    'label':"Endereço",
+                    "tipo":"text"
+                },
+                "quantPets":{
+                    "label": "quantidade de pets",
+                    "tipo":"number",
+                    "validador":{
+                        "regra":"^[0-9]+$",
+                        "mensagem":"ser um numero natural"
+                    }
                 }
             },
-            "animal" :{
+        /* "animal" :{
                 "nome":{
                         "label":"Nome",
                         "tipo":"text"
                 }
-            }
+            }*/
         };
     </script>
-    <div class="seila">
+    <div class="conteudo">
         <p>Complete com suas informações</p>
         <br>
         <div id = "div_tutor"></div>
         <div id = "div_CadastroAnimal"></div>
+        <div id ="tabelaDados"></div>
     <script>
         
         criarForm(dados.tutor,'tutor');
-        if(localStorage["totalTutores"]!=0){
+        if(localStorage["totaltutor"]!=0){
             popularForm(localStorage.tutorAtual,'tutor');
-            criarTabela();
+            criarTabela('tutor');
+            criarBuscador('tutor')
         }
       //  document.getElementById("Salvar_tutor").setAttribute("onclick","salvarTutor('CadastroAnimal')");
         
     </script>
+    
     </div>
     </div>
-    <div id="lightbox" onclick="fecharLightbox()"></div>
+    <div id="lightbox" onclick="fecharLightbox()">
+    
+            <div class="lbmensagem">
+<p>
+        
+            O seu formulario não foi salvo pois tem dados que precisam ser revistos
+        </p>     
+            </div>
+        </div>
+    
 </body>
 </html>
